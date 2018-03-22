@@ -9,6 +9,18 @@ import { ToastrModule } from 'ngx-toastr';
 import { AppComponent } from './app.component';
 import { RouterModule, Routes } from '@angular/router';
 
+import { LayoutModule } from '@angular/cdk/layout';
+
+//angular material
+import { 
+  MatButtonModule, 
+  MatCheckboxModule, 
+  MatToolbarModule, 
+  MatSidenavModule,
+  MatIconModule,
+  MatListModule
+} from '@angular/material';
+
 //firebase
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireModule } from 'angularfire2';
@@ -43,7 +55,14 @@ const appRoutes: Routes = [
   ],
   imports: [
   	RouterModule.forRoot(appRoutes),
+    MatButtonModule,
+    MatCheckboxModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatListModule,
     BrowserModule,
+    LayoutModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     FormsModule,

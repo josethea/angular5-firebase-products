@@ -1,6 +1,6 @@
-<nav class="navbar fixed-top navbar-dark bg-dark">
-  <a class="navbar-brand" href="/admin">PANEL DE ADMINISTRACIÓN</a>
-</nav>
+<!-- <mat-toolbar color="primary">
+  <span>PANEL DE ADMINISTRACIÓN</span>
+</mat-toolbar>
 <div class="content-wrapper" style="padding-top:72px;">
   <div class="container-fluid">
     <div class="row">
@@ -19,4 +19,34 @@
       </div>
     </div>
   </footer>
+</div> -->
+
+<div class="example-container" [class.example-is-mobile]="mobileQuery.matches">
+  <mat-toolbar color="primary" class="example-toolbar">
+    <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
+    <h1 class="example-app-name">Responsive App</h1>
+  </mat-toolbar>
+
+  <mat-sidenav-container class="example-sidenav-container"
+                         [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+    <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'"
+                 [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
+      <mat-nav-list>
+        <a mat-list-item>
+          <mat-icon>description</mat-icon>
+          &nbsp;&nbsp;Categories 
+        </a>
+        <a mat-list-item>
+          <mat-icon>shopping_basket</mat-icon>
+          &nbsp;&nbsp;Products
+        </a>
+      </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate neque pariatur, voluptatem soluta numquam illo laborum labore quidem omnis, laboriosam, tempora nulla. Est nemo sed dicta voluptatibus, omnis laborum. Labore.</p>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
 </div>
+
+
