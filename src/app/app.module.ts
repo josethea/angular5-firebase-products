@@ -32,16 +32,29 @@ import { LayoutComponent } from './components/portal/layout/layout.component';
 
 import { CategoriesComponent } from './components/admin/categories/categories.component';
 import { ProductsComponent } from './components/admin/products/products.component';
+import { HomeComponent } from './components/admin/home/home.component';
 
 
 const appRoutes: Routes = [
   { 
     path: 'admin', 
-    component: AdminComponent
+    component: AdminComponent,
+    children: [
+      { path: '', redirectTo: 'home', pathMatch: 'full' },
+      { path: 'home', component: HomeComponent },
+      { path: 'categories', component: CategoriesComponent },
+      { path: 'products', component: ProductsComponent }
+    ]
   },
   { 
     path: '', 
     component: LayoutComponent, 
+  },
+  {
+    path: '**',
+    redirectTo: '',
+    pathMatch: 'full',
+    component: LayoutComponent
   }
 ];
 
@@ -51,7 +64,8 @@ const appRoutes: Routes = [
     AdminComponent,
     LayoutComponent,
     CategoriesComponent,
-    ProductsComponent
+    ProductsComponent,
+    HomeComponent
   ],
   imports: [
   	RouterModule.forRoot(appRoutes),
