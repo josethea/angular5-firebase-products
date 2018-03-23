@@ -18,13 +18,20 @@ import {
   MatToolbarModule, 
   MatSidenavModule,
   MatIconModule,
-  MatListModule
+  MatListModule,
+  MatCardModule,
+  MatGridListModule,
+  MatTableModule
 } from '@angular/material';
 
 //firebase
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireModule } from 'angularfire2';
 import { environment } from '../environments/environment';
+
+//services
+import { CategoryService } from './services/category.service';
+import { ProductService } from './services/product.service';
 
 //components
 import { AdminComponent } from './components/admin/admin/admin.component';
@@ -75,6 +82,9 @@ const appRoutes: Routes = [
     MatSidenavModule,
     MatIconModule,
     MatListModule,
+    MatCardModule,
+    MatGridListModule,
+    MatTableModule,
     BrowserModule,
     LayoutModule,
     AngularFireModule.initializeApp(environment.firebase),
@@ -83,7 +93,10 @@ const appRoutes: Routes = [
     BrowserAnimationsModule,
     ToastrModule.forRoot()
   ],
-  providers: [],
+  providers: [
+    CategoryService,
+    ProductService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

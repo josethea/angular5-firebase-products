@@ -1,1 +1,26 @@
-<h1>Homeeee</h1>
+<mat-grid-list cols="2" rowHeight="2:1">
+  	<mat-grid-tile>
+	  	<mat-card>
+	  		<mat-card-content>
+	  			<a [routerLink]="['/admin/categories']">
+	  				<h1>CATEGORÍAS</h1>
+	  			</a>
+	  		</mat-card-content>
+			<mat-card-footer class="text-center">
+				<h6>Total: 4</h6>
+			</mat-card-footer>
+		</mat-card>
+  	</mat-grid-tile>
+  	<mat-grid-tile>
+	  	<mat-card>
+	  		<mat-card-content>
+	  			<a [routerLink]="['/admin/products']">
+	  				<h1>PRODUCTOS</h1>
+	  			</a>
+	  		</mat-card-content>
+			<mat-card-footer class="text-center">
+				<h6>Total: 20</h6>
+			</mat-card-footer>
+		</mat-card>
+  	</mat-grid-tile>
+</mat-grid-list>
