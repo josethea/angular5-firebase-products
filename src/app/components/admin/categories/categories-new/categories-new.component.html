@@ -1,0 +1,33 @@
+<div class="p-3 mb-2 bg-dark text-white">AÑADIR CATEGORIA</div>
+<form class="form-container" #newCategoryForm="ngForm">
+	<!-- <input type="hidden" name="$key" #key="ngModel" [(ngModel)]="categoryService.selectedCategory.$key"> -->
+	<mat-form-field>
+		<input
+			name="url_img"
+			ngModel
+			matInput 
+			placeholder="Url de la imagen"
+			>
+	</mat-form-field>
+	<mat-form-field>
+		<input
+			name="name"
+			ngModel
+			matInput 
+			placeholder="Nombre"
+			>
+	</mat-form-field>
+	<mat-form-field>
+		<textarea
+			name="description"
+			ngModel
+			matInput 
+			placeholder="Descripción"
+			>
+		</textarea>
+	</mat-form-field>
+	<div class="button-row">
+		<button (click)="onSave(newCategoryForm)" mat-raised-button color="primary">Guardar</button>
+		<button (click)="onClose()" mat-raised-button>Cancelar</button>
+	</div>
+</form>

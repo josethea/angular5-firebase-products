@@ -1,12 +1,24 @@
 <mat-card>
+	<mat-card-title>
+		LISTA DE CATEGORIAS
+	</mat-card-title>
+</mat-card>
+
+
+<mat-card>
 	<mat-card-content>
+
+		<button mat-raised-button color="primary" (click)="passDataNew()">
+    		Nuevo
+  		</button>
+
 		<mat-table #table [dataSource]="categoryList">
 			<ng-container matColumnDef="url_img">
 				<mat-header-cell *matHeaderCellDef> 
 					Url
 				</mat-header-cell>
 				<mat-cell *matCellDef="let category">
-					{{category.url_img}}
+					<a href="{{category.url_img}}">{{category.url_img}}</a>
 				</mat-cell>
 			</ng-container>
 			<ng-container matColumnDef="name">
@@ -30,10 +42,10 @@
 					Operaciones
 				</mat-header-cell>
 				<mat-cell *matCellDef="let row">
-					<button mat-raised-button mat-icon-button color="primary">
+					<button mat-raised-button mat-icon-button color="primary" (click)="passDataEdit(row)">
     					<mat-icon aria-label="">mode_edit</mat-icon>
   					</button>
-					<button mat-raised-button mat-icon-button color="warn">
+					<button mat-raised-button mat-icon-button color="warn" (click)="onDelete(row.$key)">
     					<mat-icon aria-label="">delete</mat-icon>
   					</button>
 				</mat-cell>
@@ -41,31 +53,8 @@
 
 			<mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
     		<mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-    		<mat-row *ngIf="categoryList.length == 0" colspan="4">No data available!!</mat-row>
-
 		</mat-table>
+		<h5 class="text-center" *ngIf="categoryList.length == 0">No data available!!</h5>
 	</mat-card-content>
 </mat-card>
-
-<!-- <form #categoryForm="ngForm" (ngSubmit)="onSubmit(categoryForm)">
-	<input 
-		type="text"
-		name="url_img"
-		ngModel
-		placeholder="Add url img"
-		>
-	<input 
-		type="text"
-		name="name"
-		ngModel
-		placeholder="Add category name"
-		>
-	<input 
-		type="text"
-		name="description"
-		ngModel
-		placeholder="Add category description"
-		>
-	<button type="submit">Add Category</button>
-</form> -->
 

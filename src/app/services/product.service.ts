@@ -16,6 +16,7 @@ export class ProductService {
 
   insertProduct(product: Product) {
   	this.productList.push({
+      name: product.name,
   		description: product.description,
   		price: product.price,
   		stock: product.stock,
@@ -25,6 +26,7 @@ export class ProductService {
 
   updateProduct(product: Product) {
   	this.productList.update(product.$key, {
+      name: product.name,
   		description: product.description,
   		price: product.price,
   		stock: product.stock,

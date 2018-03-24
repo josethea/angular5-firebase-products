@@ -34,3 +34,22 @@ footer.sticky-footer {
     width: calc(100% - 55px);
   }
 }
+
+mat-card {
+  margin: 10px;
+}
+
+.button-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-container > * {
+  width: 100%;
+}

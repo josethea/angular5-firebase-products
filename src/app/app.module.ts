@@ -21,8 +21,16 @@ import {
   MatListModule,
   MatCardModule,
   MatGridListModule,
-  MatTableModule
+  MatTableModule,
+  MatDialogModule,
+  MatInputModule,
+  MatFormFieldModule,
+  MatDividerModule,
+  MatSelectModule,
+  MatOptionModule
 } from '@angular/material';
+
+import {MAT_DIALOG_DATA} from '@angular/material';
 
 //firebase
 import { AngularFireDatabaseModule } from 'angularfire2/database';
@@ -40,6 +48,10 @@ import { LayoutComponent } from './components/portal/layout/layout.component';
 import { CategoriesComponent } from './components/admin/categories/categories.component';
 import { ProductsComponent } from './components/admin/products/products.component';
 import { HomeComponent } from './components/admin/home/home.component';
+import { CategoriesEditComponent } from './components/admin/categories/categories-edit/categories-edit.component';
+import { CategoriesNewComponent } from './components/admin/categories/categories-new/categories-new.component';
+import { ProductsNewComponent } from './components/admin/products/products-new/products-new.component';
+import { ProductsEditComponent } from './components/admin/products/products-edit/products-edit.component';
 
 
 const appRoutes: Routes = [
@@ -72,7 +84,11 @@ const appRoutes: Routes = [
     LayoutComponent,
     CategoriesComponent,
     ProductsComponent,
-    HomeComponent
+    HomeComponent,
+    CategoriesEditComponent,
+    CategoriesNewComponent,
+    ProductsNewComponent,
+    ProductsEditComponent
   ],
   imports: [
   	RouterModule.forRoot(appRoutes),
@@ -85,6 +101,12 @@ const appRoutes: Routes = [
     MatCardModule,
     MatGridListModule,
     MatTableModule,
+    MatDialogModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatDividerModule,
+    MatSelectModule,
+    MatOptionModule,
     BrowserModule,
     LayoutModule,
     AngularFireModule.initializeApp(environment.firebase),
@@ -97,7 +119,13 @@ const appRoutes: Routes = [
     CategoryService,
     ProductService
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [
+    CategoriesEditComponent,
+    CategoriesNewComponent,
+    ProductsEditComponent,
+    ProductsNewComponent
+  ]
 })
 export class AppModule { }
 
