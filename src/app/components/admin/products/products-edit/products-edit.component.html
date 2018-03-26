@@ -1,3 +1,69 @@
-<p>
-  products-edit works!
-</p>
+<div class="p-3 mb-2 bg-dark text-white">EDITAR PRODUCTO</div>
+<form class="form-container" #editProductForm="ngForm">
+	<input type="hidden" name="$key" #key="ngModel" [(ngModel)]="productService.selectedProduct.$key">
+	<mat-form-field>
+		<input
+			name="url_img"
+			#url_img="ngModel"
+			[(ngModel)]="productService.selectedProduct.url_img"
+			matInput 
+			placeholder="Url de la imagen"
+			>
+	</mat-form-field>
+	<mat-form-field>
+		<input
+			name="name"
+			#name="ngModel"
+			[(ngModel)]="productService.selectedProduct.name"
+			matInput 
+			placeholder="Nombre"
+			>
+	</mat-form-field>
+	<mat-form-field>
+		<textarea
+			name="description"
+			#description="ngModel"
+			[(ngModel)]="productService.selectedProduct.description"
+			matInput 
+			placeholder="Descripción"
+			>
+		</textarea>
+	</mat-form-field>
+	<mat-form-field>
+		<input 
+			type="number"
+			name="price"
+			#price="ngModel"
+			[(ngModel)]="productService.selectedProduct.price"
+			matInput
+			placeholder="Precio"
+			>
+	</mat-form-field>
+	<mat-form-field>
+		<input 
+			type="number"
+			name="stock"
+			#stock="ngModel"
+			[(ngModel)]="productService.selectedProduct.stock"
+			matInput
+			placeholder="Stock"
+			>
+	</mat-form-field>
+	<mat-form-field>
+	  	<mat-select 
+	  		placeholder="Seleccione la categoría" 
+	  		name="category_key"
+	  		#category_key="ngModel"
+			[(ngModel)]="productService.selectedProduct.category_key"
+	  	>
+	    	<mat-option *ngFor="let category of categoryList" [value]="category.$key">
+	      		{{ category.name }}
+	    	</mat-option>
+	  	</mat-select>
+	</mat-form-field>
+	<div class="button-row">
+		<button (click)="onSave(editProductForm)" mat-raised-button color="primary">Guardar</button>
+		<button (click)="onClose()" mat-raised-button>Cancelar</button>
+	</div>
+</form>
+

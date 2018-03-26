@@ -7,6 +7,7 @@ export class CategoryService {
 
 	categoryList: AngularFireList<any>;
 	selectedCategory: Category = new Category();
+  
 
   constructor(private firebase: AngularFireDatabase) { }
 

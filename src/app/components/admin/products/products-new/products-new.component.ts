@@ -14,7 +14,7 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./products-new.component.css']
 })
 export class ProductsNewComponent implements OnInit {
-	categoryList: Category[] = [];
+	categoryList: any[] = [];
 
   constructor(
   	private productService: ProductService,

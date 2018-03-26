@@ -19,6 +19,7 @@ export class AdminComponent implements OnInit {
   }
 
   ngOnInit() {
+
   }
 
   ngOnDestroy(): void {

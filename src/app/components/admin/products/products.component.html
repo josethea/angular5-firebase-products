@@ -11,5 +11,72 @@
 		<button mat-raised-button color="primary" (click)="passDataNew()">
     		Nuevo
   		</button>
+
+  		<mat-table #table [dataSource]="productList">
+  			<ng-container matColumnDef="url_img">
+				<mat-header-cell *matHeaderCellDef> 
+					Url
+				</mat-header-cell>
+				<mat-cell *matCellDef="let product">
+					<a href="{{product.url_img}}" target="_blank">{{product.url_img}}</a>
+				</mat-cell>
+			</ng-container>
+  			<ng-container matColumnDef="name">
+				<mat-header-cell *matHeaderCellDef> 
+					Nombre
+				</mat-header-cell>
+				<mat-cell *matCellDef="let product">
+					{{product.name}}
+				</mat-cell>
+			</ng-container>
+			<ng-container matColumnDef="description">
+				<mat-header-cell *matHeaderCellDef> 
+					Descripción
+				</mat-header-cell>
+				<mat-cell *matCellDef="let product">
+					{{product.description}}
+				</mat-cell>
+			</ng-container>
+			<ng-container matColumnDef="price">
+				<mat-header-cell *matHeaderCellDef> 
+					Precio
+				</mat-header-cell>
+				<mat-cell *matCellDef="let product">
+					{{product.price}}
+				</mat-cell>
+			</ng-container>
+			<ng-container matColumnDef="stock">
+				<mat-header-cell *matHeaderCellDef> 
+					Stock
+				</mat-header-cell>
+				<mat-cell *matCellDef="let product">
+					{{product.stock}}
+				</mat-cell>
+			</ng-container>
+			<ng-container matColumnDef="category_name">
+				<mat-header-cell *matHeaderCellDef> 
+					Categoría
+				</mat-header-cell>
+				<mat-cell *matCellDef="let product">
+					{{product.category_name}}
+				</mat-cell>
+			</ng-container>
+			<ng-container matColumnDef="operations">
+				<mat-header-cell *matHeaderCellDef>
+					Operaciones
+				</mat-header-cell>
+				<mat-cell *matCellDef="let row">
+					<button mat-raised-button mat-icon-button color="primary" (click)="passDataEdit(row)">
+    					<mat-icon aria-label="">mode_edit</mat-icon>
+  					</button>
+					<button mat-raised-button mat-icon-button color="warn" (click)="onDelete(row.$key)">
+    					<mat-icon aria-label="">delete</mat-icon>
+  					</button>
+				</mat-cell>
+			</ng-container>
+			<mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    		<mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  		</mat-table>
+  		<h5 class="text-center" *ngIf="productList.length == 0">No data available!!</h5>
   	</mat-card-content>
 </mat-card>

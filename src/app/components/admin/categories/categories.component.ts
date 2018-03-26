@@ -15,7 +15,7 @@ import { CategoriesNewComponent } from './categories-new/categories-new.componen
   styleUrls: ['./categories.component.css']
 })
 export class CategoriesComponent implements OnInit {
-	categoryList: Category[] = [];
+	categoryList: any[] = [];
 	displayedColumns = ['url_img', 'name', 'description', 'operations'];
 
   constructor(
@@ -25,18 +25,19 @@ export class CategoriesComponent implements OnInit {
   ) { }
 
   	ngOnInit() {
-	  	this.categoryService.getCategories()
-	  		.snapshotChanges()
-	  		.subscribe(item => {
-	  			this.categoryList = [];
-	  			//console.log(item);
-	  			item.forEach(el => {
-	  				let x = el.payload.toJSON();
-	  				x["$key"] = el.key;
-	  				this.categoryList.push(x as Category);
-	  			});
-	  			console.log(this.categoryList);
-	  		});
+      this.categoryService.getCategories()
+        .snapshotChanges()
+        .subscribe(item => {
+          this.categoryList = [];
+          //console.log(item);
+          item.forEach(el => {
+            let x = el.payload.toJSON();
+            x["$key"] = el.key;
+            this.categoryList.push(x as Category);
+          });
+          console.log(this.categoryList);
+          //this.categoryService.categoryArray = this.categoryList;
+        });
   	}
 
   	onSubmit(categoryForm: NgForm) {
